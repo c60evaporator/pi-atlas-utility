@@ -1,0 +1,3 @@
+No,DeviceName,Period,Count,ColName1,LowerThreshold1,UpperThreshold1,ColName2,LowerThreshold2,UpperThreshold2
+5,Omron_USB_1,8,2,Temperature,-30,50,Humidity,1,
+6,Inkbird_IBSTH1mini_1,6,3,Humidity,1,,,,

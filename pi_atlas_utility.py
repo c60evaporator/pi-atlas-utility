@@ -123,7 +123,7 @@ class PiAtlasUtility():
         if not os.path.exists(log_output):
             os.makedirs(log_output)
         #ログの初期化
-        logname = f"/atlasbackuplog_{str(self.masterdate.strftime('%y%m%d'))}.log"
+        logname = f"/Atlas{self.process_name}Log_{str(self.masterdate.strftime('%y%m%d'))}.log"
         logging.basicConfig(filename=log_output + logname, level=logging.INFO)
 
         for k in collection_names.keys():

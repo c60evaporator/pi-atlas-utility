@@ -1,0 +1,8 @@
+CollectionName,No,DeviceName,FailureMinutes,ColName
+sensors,1,Nature_Remo_1,300,Temperature
+sensors,2,Omron_USB_1,300,Temperature
+sensors,3,Inkbird_IBSTH1_1,300,Temperature
+sensors,4,Inkbird_IBSTH1_2,300,Temperature
+sensors,5,Omron_USB_1,300,Temperature
+sensors,6,Inkbird_IBSTH1mini_1,300,Temperature
+sensors,7,SwitchBot_Thermo_1,300,Temperature

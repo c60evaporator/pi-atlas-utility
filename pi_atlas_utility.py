@@ -103,6 +103,7 @@ class PiAtlasUtility():
             # 判定対象列が存在しない時、取得成功数を0とする
             else:
                 acquisition_num = 0
+                df_device = None
             # 取得成功数=0のとき、
             if acquisition_num == 0:
                 #メールのタイトル
@@ -112,7 +113,9 @@ class PiAtlasUtility():
                 mail_message = f'ACQUISITION FAILURE DETECTION\n'\
                     f'device {device.DeviceName}\n'\
                     f'date {str(self.masterdate)}]'
-                mail_message = mail_message + '\n\n' + str(df_device.reset_index(drop=True))
+                # 判定対象列が存在するとき、本文にDataFrame内容を記載
+                if colname in df.columns:
+                    mail_message = mail_message + '\n\n' + str(df_device.reset_index(drop=True))
                 #一定時間内にメール送信されたか確認し、Falseならメール送信＋検知ログ書込、Trueなら検知ログ書込のみ実施
                 if self._confirm_mail_sent(device.DeviceName):
                     self._make_detection_log(device.DeviceName, False)

@@ -93,11 +93,12 @@ class PiAtlasUtility():
         for device in detection_list.itertuples():
             #判定対象列名
             colname = f"no{format(device.No,'02d')}_{device.ColName}"
-            #FailureMinutes以降のデータのみ抽出
-            device_start = self.masterdate - timedelta(minutes=device.FailureMinutes)
-            df_device = df[df['Date_Master'] >= device_start][["Date_Master",colname]]
             # 判定対象列が存在するとき、判定対象列の取得成功数をカウント
-            if colname in df_device.columns:
+            if colname in df.columns:
+                #FailureMinutes以降のデータのみ抽出
+                device_start = self.masterdate - timedelta(minutes=device.FailureMinutes)
+                df_device = df[df['Date_Master'] >= device_start][["Date_Master",colname]]
+                #取得成功数カウント
                 acquisition_num = df_device[colname].count()
             # 判定対象列が存在しない時、取得成功数を0とする
             else:

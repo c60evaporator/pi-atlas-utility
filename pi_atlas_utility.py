@@ -225,7 +225,7 @@ class PiAtlasUtility():
 
         backup_dirs = ast.literal_eval(cfg['Path']['BackupDirs'])
         log_output = cfg['Path'][f'{self.process_name}LogOutput']
-        retry = int(cfg['Process']['BackupRetry'])
+        retry = int(cfg['Retry'][f'{self.process_name}Retry'])
         user_name = cfg['DB']['UserName']
         cluster_name = cfg['DB']['ClusterName']
         db_name = cfg['DB']['DBName']
